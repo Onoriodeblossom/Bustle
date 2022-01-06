@@ -15,6 +15,9 @@ import {
 import Loader from './components/Loader';
 import { useForm, Controller } from "react-hook-form";
 
+import Logo from "../images/logo.png"
+import {Container} from './components/container';
+
 
 const ForgetPasswordScreen = props => {
     const [userEmail, setUserEmail] = useState('');
@@ -127,6 +130,7 @@ const ForgetPasswordScreen = props => {
                     backgroundColor: '#307ecc',
                     justifyContent: 'center',
                 }}>
+                    
                 <Image
                     source={require('../images/success.png')}
                     style={{
@@ -147,7 +151,10 @@ const ForgetPasswordScreen = props => {
     }
 
     return (
-        <View style={{ flex: 1, backgroundColor: '#307ecc' }}>
+        <Container scrollable>
+
+
+        <View style={{ flex: 1,width:"100%", backgroundColor:"transparent" }}>
             <Loader loading={loading} />
             <ScrollView
                 keyboardShouldPersistTaps="handled"
@@ -157,7 +164,7 @@ const ForgetPasswordScreen = props => {
                 }}>
                 <View style={{ alignItems: 'center' }}>
                     <Image
-                        source={require('../images/aboutreact.png')}
+                        source={Logo}
                         style={{
                             width: '50%',
                             height: 100,
@@ -331,6 +338,7 @@ const ForgetPasswordScreen = props => {
                 </KeyboardAvoidingView>
             </ScrollView>
         </View>
+            </Container>
     );
 };
 export default ForgetPasswordScreen;
@@ -345,7 +353,7 @@ const styles = StyleSheet.create({
         margin: 10,
     },
     buttonStyle: {
-        backgroundColor: '#7DE24E',
+        backgroundColor: '#0292B7',
         borderWidth: 0,
         color: '#FFFFFF',
         borderColor: '#7DE24E',
@@ -375,7 +383,8 @@ const styles = StyleSheet.create({
         color: 'white',
         paddingLeft: 15,
         paddingRight: 15,
-        borderWidth: 1,
+        borderWidth: 0,
+        borderBottomWidth:1,
         borderRadius: 30,
         borderColor: '#dadae8',
     },

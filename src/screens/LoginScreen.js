@@ -9,12 +9,17 @@ import {
   Keyboard,
   TouchableOpacity,
   KeyboardAvoidingView,
+  BackgroundImage,
+  ImageBackground,
 } from 'react-native';
 import AsyncStorage from '@react-native-community/async-storage';
 import Loader from './components/Loader';
 import {ClearAppData} from './utility/Cleanups';
 import {useForm, Controller} from 'react-hook-form';
 import {Container} from './components/container';
+import  Shape  from "../images/Rectangle.png";
+import Logo from "../images/logo.png"
+import Icon from "react-native-vector-icons/AntDesign"
 
 const LoginScreen = ({navigation}) => {
   const [userEmail, setUserEmail] = useState('');
@@ -90,107 +95,139 @@ const LoginScreen = ({navigation}) => {
   };
 
   return (
-    <View style={styles.mainBody}>
-      <Loader loading={loading} />
-      <Container></Container>
-      <ScrollView
-        keyboardShouldPersistTaps="handled"
-        contentContainerStyle={{
-          flex: 1,
-          justifyContent: 'center',
-          alignContent: 'center',
-        }}>
-        <View style={styles.polygon}>
-          <KeyboardAvoidingView enabled>
-            <View style={{alignItems: 'center'}}></View>
-            <View style={styles.SectionStyle}>
-              <Controller
-                control={control}
-                render={({field: {onChange, onBlur, value}}) => (
-                  <TextInput
-                    onBlur={onBlur}
-                    value={value}
-                    style={styles.inputStyle}
-                    onChangeText={value => onChange(value)}
-                    placeholder="Enter Email" //dummy@abc.com
-                    placeholderTextColor="#8b9cb5"
-                    autoCapitalize="none"
-                    keyboardType="email-address"
-                    returnKeyType="next"
-                    onSubmitEditing={() =>
-                      passwordInputRef.current &&
-                      passwordInputRef.current.focus()
-                    }
-                    underlineColorAndroid="#f000"
-                    blurOnSubmit={false}
-                  />
+    <Container>
+      <View style={styles.mainBody}>
+        <Image source={Logo} style={{backgroundColor:"red", width:300}}/>
+        <ImageBackground source={Shape}  style={{height:460,width:380}}>
+        
+      
+        <Loader loading={loading} />
+        <ScrollView
+          keyboardShouldPersistTaps="handled"
+          contentContainerStyle={{
+            // flex: 1,
+        
+            width:"100%",
+            height:270,
+            marginTop:100,
+
+    paddingRight: 20,
+            // backgroundColor:"red",
+            justifyContent: 'center',
+            alignContent: 'center',
+            
+          }}>
+          <View>
+            <KeyboardAvoidingView enabled>
+              <View style={{alignItems: 'center'}}>
+
+              </View>
+
+            <Text style={{fontSize:30, paddingTop:20,paddingLeft:65}}>Sign in</Text>
+              <View style={styles.SectionStyle}>
+                
+                <Controller
+                  control={control}
+                  render={({field: {onChange, onBlur, value}}) => (
+                    <TextInput
+                      onBlur={onBlur}
+                      value={value}
+                      style={styles.inputStyle}
+                      onChangeText={value => onChange(value)}
+                      placeholder="Enter Email" //dummy@abc.com
+                      placeholderTextColor="#8b9cb5"
+                      autoCapitalize="none"
+                      keyboardType="email-address"
+                      returnKeyType="next"
+                      onSubmitEditing={() =>
+                        passwordInputRef.current &&
+                        passwordInputRef.current.focus()
+                      }
+                      underlineColorAndroid="#f000"
+                      blurOnSubmit={false}
+                    />
+                  )}
+                  name="userEmail"
+                  rules={{
+                    required: true,
+                    pattern: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/,
+                  }}
+                  defaultValue=""
+                />
+              </View>
+              <View style={styles.ErrorSectionStyle}>
+                {errors.userEmail && (
+                  <Text style={styles.ErrorMesage}>Email is required!</Text>
                 )}
-                name="userEmail"
-                rules={{
-                  required: true,
-                  pattern: /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/,
-                }}
-                defaultValue=""
-              />
-            </View>
-            <View style={styles.ErrorSectionStyle}>
-              {errors.userEmail && (
-                <Text style={styles.ErrorMesage}>Email is required!</Text>
-              )}
-            </View>
-            <View style={styles.SectionStyle}>
-              <Controller
-                control={control}
-                render={({field: {onChange, onBlur, value}}) => (
-                  <TextInput
-                    value={value}
-                    style={styles.inputStyle}
-                    onBlur={onBlur}
-                    onChangeText={value => onChange(value)}
-                    placeholder="Enter Password" //12345
-                    placeholderTextColor="#8b9cb5"
-                    keyboardType="default"
-                    ref={passwordInputRef}
-                    onSubmitEditing={Keyboard.dismiss}
-                    blurOnSubmit={false}
-                    secureTextEntry={true}
-                    underlineColorAndroid="#f000"
-                    returnKeyType="next"
-                  />
+              </View>
+              <View style={styles.SectionStyle}>
+                <Controller
+                  control={control}
+                  render={({field: {onChange, onBlur, value}}) => (
+                    <TextInput
+                      value={value}
+                      style={styles.inputStyle}
+                      onBlur={onBlur}
+                      onChangeText={value => onChange(value)}
+                      placeholder="Enter Password" //12345
+                      placeholderTextColor="#8b9cb5"
+                      keyboardType="default"
+                      ref={passwordInputRef}
+                      onSubmitEditing={Keyboard.dismiss}
+                      blurOnSubmit={false}
+                      secureTextEntry={true}
+                      underlineColorAndroid="#f000"
+                      returnKeyType="next"
+                    />
+                  )}
+                  name="userPassword"
+                  rules={{required: true}}
+                  defaultValue=""
+                />
+              </View>
+              <View style={styles.ErrorSectionStyle}>
+                {errors.userPassword?.type === 'required' && (
+                  <Text style={styles.ErrorMesage}>Password is required!</Text>
                 )}
-                name="userPassword"
-                rules={{required: true}}
-                defaultValue=""
-              />
-            </View>
-            <View style={styles.ErrorSectionStyle}>
-              {errors.userPassword?.type === 'required' && (
-                <Text style={styles.ErrorMesage}>Password is required!</Text>
-              )}
-            </View>
-            <Text
-              style={styles.registerTextStyle}
-              onPress={() => navigation.navigate('ForgetPasswordScreen')}>
-              Forgot password?
-            </Text>
-            {errortext != '' ? (
-              <Text style={styles.errorTextStyle}>{errortext}</Text>
-            ) : null}
-            <TouchableOpacity
-              style={styles.buttonStyle}
-              activeOpacity={0.5}
-              onPress={handleSubmit(handleSubmitPress)}>
-              <Text style={styles.buttonTextStyle}>LOGIN</Text>
-            </TouchableOpacity>
-            <Text
-              style={styles.registerTextStyle}
-              onPress={() => navigation.navigate('RegisterScreen')}>
-              New Here ? Register
-            </Text>
-          </KeyboardAvoidingView>
-        </View>
-      </ScrollView>
-    </View>
+              </View>
+              <View style={{
+                justifyContent:"flex-end",
+                alignItems:"flex-end",
+                width:"90%",
+                flexDirection:"row"
+            }}>
+              <Text
+                style={styles.registerTextStyle}
+                onPress={() => navigation.navigate('ForgetPasswordScreen')}>
+                Forgot password?
+              </Text>
+
+              </View>
+              {errortext != '' ? (
+                <Text style={styles.errorTextStyle}>{errortext}</Text>
+              ) : null}
+              
+              
+            </KeyboardAvoidingView>
+          </View>
+        </ScrollView> 
+
+        </ImageBackground>
+        <TouchableOpacity
+                style={styles.buttonStyle}
+                activeOpacity={0.5}
+                onPress={handleSubmit(handleSubmitPress)}>
+                  <Icon name="arrowright" color="#fff" size={21}/>
+              </TouchableOpacity>
+
+              <Text
+                style={styles.registerTextStyle}
+                onPress={() => navigation.navigate('RegisterScreen')}>
+                New Here ? Register
+              </Text>
+
+      </View>
+    </Container>
   );
 };
 export default LoginScreen;
@@ -198,13 +235,14 @@ export default LoginScreen;
 const styles = StyleSheet.create({
   mainBody: {
     flex: 1,
+    width: '100%',
     justifyContent: 'center',
-    backgroundColor: '#307ecc',
+    // backgroundColor: '#307ecc',
     alignContent: 'center',
+    alignItems:"center"
   },
   polygon: {
-    backgroundColor: 'red',
-
+    // backgroundColor: 'red',
     // clipPath: "polygon(0 0, 100% 46%, 100% 100%, 0 100%, 0 49%)",
   },
   SectionStyle: {
@@ -214,6 +252,7 @@ const styles = StyleSheet.create({
     marginLeft: 35,
     marginRight: 35,
     margin: 10,
+    
   },
   ErrorSectionStyle: {
     marginLeft: 35,
@@ -224,17 +263,22 @@ const styles = StyleSheet.create({
     color: 'red',
   },
   buttonStyle: {
-    backgroundColor: '#7DE24E',
+    backgroundColor: '#0292B7',
     borderWidth: 0,
     color: '#FFFFFF',
     borderColor: '#7DE24E',
-    height: 40,
+    height: 70,
+    width:70,
     alignItems: 'center',
-    borderRadius: 30,
+    borderRadius: 50,
     marginLeft: 35,
     marginRight: 35,
     marginTop: 20,
+    alignContent:"center",
+    justifyContent:"center",
     marginBottom: 25,
+    position:"absolute",
+    top:530
   },
   buttonTextStyle: {
     color: '#FFFFFF',
@@ -246,17 +290,18 @@ const styles = StyleSheet.create({
     color: 'white',
     paddingLeft: 15,
     paddingRight: 15,
-    borderWidth: 1,
+    borderWidth: 0,
+    borderBottomWidth:1,
     borderRadius: 30,
     borderColor: '#dadae8',
   },
   registerTextStyle: {
-    color: '#FFFFFF',
-    textAlign: 'center',
+    color: '#000',
+    padding:20,
     fontWeight: 'bold',
     fontSize: 14,
     alignSelf: 'center',
-    padding: 10,
+    
   },
   errorTextStyle: {
     color: 'red',

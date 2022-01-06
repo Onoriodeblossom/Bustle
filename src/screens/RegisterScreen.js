@@ -9,10 +9,16 @@ import {
   Keyboard,
   TouchableOpacity,
   ScrollView,
-  Picker
+  Picker,
+  ImageBackground
 } from 'react-native';
 import Loader from './components/Loader';
 import { useForm, Controller } from "react-hook-form";
+import { Container } from './components/container';
+import Rectangle from "../images/rectangle2.png"
+import Icon from "react-native-vector-icons/AntDesign"
+
+import Logo from "../images/logo.png"
 
 
 const RegisterScreen = props => {
@@ -101,6 +107,7 @@ const RegisterScreen = props => {
   };
   if (isRegistraionSuccess) {
     return (
+      
       <View
         style={{
           flex: 1,
@@ -151,17 +158,23 @@ const RegisterScreen = props => {
     return emailexist;
   };
   return (
-    <View style={{ flex: 1, backgroundColor: '#307ecc' }}>
+    <Container scrollable>
+    <ScrollView style={{ width:"100%",  }}>
+       
+      <View
+      keyboardShouldPersistTaps="handled"
+      style={{
+        height:890,
+        marginBottom:50,
+        width:"100%",
+      }}>
+      
+      <ImageBackground source={Rectangle} resizeMode='contain'  style={{height:890,width:385,
+      }}>
       <Loader loading={loading} />
-      <ScrollView
-        keyboardShouldPersistTaps="handled"
-        contentContainerStyle={{
-          justifyContent: 'center',
-          alignContent: 'center',
-        }}>
-        <View style={{ alignItems: 'center' }}>
+      <View style={{ alignItems: 'center' }}>
           <Image
-            source={require('../images/aboutreact.png')}
+            source={Logo}
             style={{
               width: '50%',
               height: 100,
@@ -170,6 +183,12 @@ const RegisterScreen = props => {
             }}
           />
         </View>
+            <Text style={{fontSize:30, paddingTop:90,paddingLeft:65}}>Sign up</Text>
+      <View
+      style={{
+        paddingTop:80,
+      }}>
+
         <KeyboardAvoidingView enabled>
           <View style={styles.SectionStyle}>
             <Controller
@@ -182,7 +201,7 @@ const RegisterScreen = props => {
 
                   onChangeText={value => onChange(value)}
                   underlineColorAndroid="#f000"
-                  placeholder="Enter First Name"
+                  placeholder=" Firstname"
                   placeholderTextColor="#8b9cb5"
                   autoCapitalize="sentences"
                   returnKeyType="next"
@@ -239,7 +258,7 @@ const RegisterScreen = props => {
                   style={styles.inputStyle}
                   onChangeText={value => onChange(value)}
                   underlineColorAndroid="#f000"
-                  placeholder="Enter Email"
+                  placeholder="Email"
                   placeholderTextColor="#8b9cb5"
                   keyboardType="email-address"
                   ref={emailInputRef}
@@ -266,35 +285,7 @@ const RegisterScreen = props => {
             {errors.userEmail?.type === 'pattern' && <Text style={styles.ErrorMesage}>Invalid email address</Text>}
             {errors.userEmail && errors.userEmail?.type === 'validate' && <Text style={styles.ErrorMesage}>This email address already exists</Text>}
           </View>
-          {/* <View style={styles.SectionStyle}>
-            <Controller
-              control={control}
-              render={({ field: { onChange, onBlur, value } }) => (
-                <TextInput
-                  onBlur={onBlur}
-                  value={value}
-                  style={styles.inputStyle}
-                  onChangeText={value => onChange(value)}
-                  underlineColorAndroid="#f000"
-                  placeholder="Enter Phone Number"
-                  keyboardType={'phone-pad'}
-                  placeholderTextColor="#8b9cb5"
-                  ref={phoneNumberInputRef}
-                  returnKeyType="next"
-                  onSubmitEditing={() =>
-                    businessNameInputRef.current && businessNameInputRef.current.focus()
-                  }
-                  blurOnSubmit={false}
-                />
-              )}
-              name="phoneNumber"
-              rules={{ required: true }}
-              defaultValue=""
-            />
-          </View>
-          <View style={styles.ErrorSectionStyle}>
-            {errors.phoneNumber && <Text style={styles.ErrorMesage}>Phone Number is required!</Text>}
-          </View>
+
           <View style={styles.SectionStyle}>
             <Controller
               control={control}
@@ -305,104 +296,7 @@ const RegisterScreen = props => {
                   style={styles.inputStyle}
                   onChangeText={value => onChange(value)}
                   underlineColorAndroid="#f000"
-                  placeholder="Enter Business Name"
-                  placeholderTextColor="#8b9cb5"
-                  ref={businessNameInputRef}
-                  returnKeyType="next"
-                  onSubmitEditing={() =>
-                    industryInputRef.current && industryInputRef.current.focus()
-                  }
-                  blurOnSubmit={false}
-                />
-              )}
-              name="businessName"
-              rules={{ required: true }}
-              defaultValue=""
-            />
-          </View>
-          <View style={styles.ErrorSectionStyle}>
-            {errors.businessName && <Text style={styles.ErrorMesage}>Business Name is required!</Text>}
-          </View>
-          <View style={styles.SectionStyle}>
-            <Controller
-              control={control}
-              render={({ field: { onChange, onBlur, value } }) => (
-                <Picker
-                  selectedValue={value}
-                  style={styles.inputStyle}
-                  ref={industryInputRef}
-                  onValueChange={(value, itemIndex) => onChange(value)}
-                >
-                  <Picker.Item label="-Select Industry Type-" value="" />
-                  <Picker.Item label="Cloths" value="Cloths" />
-                  <Picker.Item label="Furnitures" value="Furnitures" />
-                </Picker>
-              )}
-              name="industryTpe"
-              rules={{ required: true }}
-              defaultValue=""
-            />
-          </View>
-          <View style={styles.ErrorSectionStyle}>
-            {errors.industryTpe && <Text style={styles.ErrorMesage}>Industry Type is required!</Text>}
-          </View>
-          <View style={styles.SectionStyle}>
-            <Controller
-              control={control}
-              render={({ field: { onChange, onBlur, value } }) => (
-                <Picker
-                  selectedValue={value}
-                  style={styles.inputStyle}
-                  ref={countryInputRef}
-                  onValueChange={(value, itemIndex) => onChange(value)}
-                >
-                  <Picker.Item label="-Select Country-" value="" />
-                  <Picker.Item label="Nigeria" value="Nigeria" />
-                  <Picker.Item label="Ghana" value="Ghana" />
-                </Picker>
-              )}
-              name="country"
-              rules={{ required: true }}
-              defaultValue=""
-            />
-          </View>
-          <View style={styles.ErrorSectionStyle}>
-            {errors.country && <Text style={styles.ErrorMesage}>Country is required!</Text>}
-          </View>
-          <View style={styles.SectionStyle}>
-            <Controller
-              control={control}
-              render={({ field: { onChange, onBlur, value } }) => (
-                <Picker
-                  selectedValue={value}
-                  style={styles.inputStyle}
-                  ref={stateInputRef}
-                  onValueChange={(value, itemIndex) => onChange(value)}
-                >
-                  <Picker.Item label="-Select State-" value="" />
-                  <Picker.Item label="Abuja" value="Abuja" />
-                  <Picker.Item label="Lagos" value="Lagos" />
-                </Picker>
-              )}
-              name="state"
-              rules={{ required: true }}
-              defaultValue=""
-            />
-          </View>
-          <View style={styles.ErrorSectionStyle}>
-            {errors.state && <Text style={styles.ErrorMesage}>State is required!</Text>}
-          </View> */}
-          <View style={styles.SectionStyle}>
-            <Controller
-              control={control}
-              render={({ field: { onChange, onBlur, value } }) => (
-                <TextInput
-                  onBlur={onBlur}
-                  value={value}
-                  style={styles.inputStyle}
-                  onChangeText={value => onChange(value)}
-                  underlineColorAndroid="#f000"
-                  placeholder="Enter Password"
+                  placeholder="Password"
                   placeholderTextColor="#8b9cb5"
                   ref={passwordInputRef}
                   returnKeyType="next"
@@ -459,17 +353,23 @@ const RegisterScreen = props => {
           {errortext != '' ? (
             <Text style={styles.errorTextStyle}>{errortext}</Text>
           ) : null}
+        </KeyboardAvoidingView>
+      </View>
+        
+
+      </ImageBackground>
           <TouchableOpacity
 
             style={styles.buttonStyle}
             activeOpacity={0.5}
             onPress={handleSubmit(handleSubmitButton)}>
 
-            <Text style={styles.buttonTextStyle}>REGISTER</Text>
+<Icon name="arrowright" color="#fff" size={21}/>
           </TouchableOpacity>
-        </KeyboardAvoidingView>
+      
+      </View>
       </ScrollView>
-    </View>
+    </Container>
   );
 };
 export default RegisterScreen;
@@ -484,17 +384,23 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   buttonStyle: {
-    backgroundColor: '#7DE24E',
+    backgroundColor: '#0292B7',
     borderWidth: 0,
     color: '#FFFFFF',
     borderColor: '#7DE24E',
-    height: 40,
+    height: 70,
+    width:70,
     alignItems: 'center',
-    borderRadius: 30,
-    marginLeft: 35,
+    borderRadius: 50,
+    // marginLeft: 35,
     marginRight: 35,
     marginTop: 20,
-    marginBottom: 20,
+    alignContent:"center",
+    justifyContent:"center",
+    marginBottom: 25,
+    position:"absolute",
+    top:720,
+    left:160
   },
   buttonTextStyle: {
     color: '#FFFFFF',
@@ -514,7 +420,9 @@ const styles = StyleSheet.create({
     color: 'white',
     paddingLeft: 15,
     paddingRight: 15,
-    borderWidth: 1,
+    borderWidth: 0,
+    borderBottomWidth:1,
+    // backgroundColor:"red",
     borderRadius: 30,
     borderColor: '#dadae8',
   },
