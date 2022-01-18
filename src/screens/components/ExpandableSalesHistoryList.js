@@ -17,7 +17,9 @@ import { Button } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { SubSalesHistoryList } from './SubHistory/SubSalesHistoryList';
 
-export const ExpandableSalesHistoryList = ({ item, onClickFunction, toggleOverlay }) => {
+export const ExpandableSalesHistoryList = ({
+     item, onClickFunction, toggleOverlay
+     }) => {
     const [layoutHeight, setLayoutHeight] = useState(0);
     const [totalCredits, setTotalCredits] = useState(0);
     const [dailyexpense, setDailyexpense] = useState(item.dailyexpense);

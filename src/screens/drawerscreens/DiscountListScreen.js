@@ -6,6 +6,7 @@ import { useFocusEffect } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Loader from '../components/Loader';
 import { DeleteDiscount } from '../utility/UserService'
+import Add from "../../images/add.png"
 import AsyncStorage from '@react-native-community/async-storage';
 const DiscountListScreen = ({ route, navigation }) => {
     useEffect(async () => {
@@ -114,6 +115,7 @@ const DiscountListScreen = ({ route, navigation }) => {
     const ItemView = ({ item }) => {
         return (
             <View style={{
+                
                 flexDirection: 'row',
                 height: 70,
                 alignContent: 'center',
@@ -219,12 +221,14 @@ const DiscountListScreen = ({ route, navigation }) => {
         <View style={{ flex: 1 }}>
             <Loader loading={loading} />
             <View style={styles.mainBody} >
-                <View>
+                <View style={{paddingVertical:20, paddingHorizontal:20}}>
                     <SearchBar
                         lightTheme={true}
                         placeholder="Search Here..."
                         onChangeText={searchFilterFunction}
                         value={search}
+                        containerStyle={{backgroundColor:"transparent", }}
+                        inputContainerStyle={{backgroundColor:"transparent"}}
                     />
                 </View>
                 <View style={{ flex: 1 }}>
@@ -236,7 +240,7 @@ const DiscountListScreen = ({ route, navigation }) => {
                     <TouchableOpacity activeOpacity={0.5} onPress={() =>
                         navigation.navigate('AddDiscountScreen')
                     } style={styles.TouchableOpacityStyle} >
-                        <Image source={{ uri: 'https://reactnativecode.com/wp-content/uploads/2017/11/Floating_Button.png' }}
+                        <Image source={Add}
                             style={styles.FloatingButtonStyle} />
                     </TouchableOpacity>
 

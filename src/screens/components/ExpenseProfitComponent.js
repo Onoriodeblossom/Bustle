@@ -7,6 +7,7 @@ import {
     Alert,
     Image
 } from 'react-native';
+import { DashBoardCard } from './DashBoardCard/dashBoardCard.componet';
 
 export const ExpenseProfitComponent = (props) => {
 
@@ -23,34 +24,35 @@ export const ExpenseProfitComponent = (props) => {
                 source={require('../../images/loss_image.png')} style={{ flex: 1, width: 10, height: 30 }} /> : null : null
 
     return (
-        <View style={{ marginTop: 10 }}>
-
+        <DashBoardCard >
+{/* 
             <View style={{ flexDirection: 'row' }}>
                 <View style={{ flex: 2 }}>
                 </View>
                 <View style={{ flex: 1 }}>
                     <Text>Total</Text>
                 </View>
-            </View>
+            </View> */}
 
-            <View style={{ flexDirection: 'row', marginTop: 10 }}>
-                <View style={{ flex: 2 }}>
-                    <Text style={{ color: 'red', fontSize: 15 }}>Weekly Expenses Rate</Text>
+            <View style={{ flexDirection: 'column',height:112, marginTop: 10 }}>
+                <View style={{  }}>
+                    <Text style={{ color: 'black', fontSize: 15 }}>Weekly Expenses Rate</Text>
                 </View>
-                <View style={{ flex: 1 }}>
+                <View style={{  }}>
                     {
                         details === undefined ? null :
                             <View style={{
-                                borderWidth: 1, borderColor: profitstyle,
-                                alignSelf: 'flex-start', flexDirection: 'row', width: 100
+                            
+            height: 80,
+            justifyContent: 'center', 
                             }}>
-                                <Text style={{ color: 'black', fontSize: 10, flex: 1 }}>{details.lossGain}%</Text>
+                                <Text style={{ color: 'black', fontSize: 40, flex: 1 }}>{details.lossGain}%</Text>
                                 {profitimage}
                             </View>
                     }
                 </View>
             </View>
-        </View>
+        </DashBoardCard>
     )
 }
 export default ExpenseProfitComponent;

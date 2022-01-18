@@ -205,6 +205,9 @@ const BankDetailsListScreen = ({ navigation }) => {
                         placeholder="Search Here..."
                         onChangeText={searchFilterFunction}
                         value={search}
+                        containerStyle={{backgroundColor:"blue"}}
+                        leftIconContainerStyle={{}}
+                        inputStyle={{backgroundColor:"red"}}
                     />
                 </View>
                 <View style={{ flex: 1 }}>

@@ -138,8 +138,6 @@ const AddDiscountScreen = ({ route, navigation }) => {
                             }}>
                                 <Text style={{ fontSize: 10 }}>PERCENT</Text>
                             </View>
-
-
                         </View>
                     </View>
                     <View style={styles.SectionStyle}>

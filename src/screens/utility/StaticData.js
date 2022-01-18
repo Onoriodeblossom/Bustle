@@ -169,13 +169,13 @@ export const ExpenseHomeDashboardUserType = [
     { id: '3', value: 'Record Previous Expense', imgUrl: require('../../images/salesupdate_menu.png'), action: 'rpe' }
 ];
 export const SalesHomeDashboard = [
-    { id: '1', value: 'New Sales', imgUrl: require('../../images/salesnew_menu.png'), action: 'ns' },
-    { id: '2', value: 'Invoices', imgUrl: require('../../images/inventory_menu.png'), action: 'si' },
-    { id: '3', value: 'Discount', imgUrl: require('../../images/inventory_menu.png'), action: 'di' },
-    { id: '4', value: 'Sales Update', imgUrl: require('../../images/salesupdate_menu.png'), action: 'su' },
-    { id: '5', value: 'Sales History', imgUrl: require('../../images/saleshistory_menu.png'), action: 'sh' },
-    { id: '6', value: 'Track Credit', imgUrl: require('../../images/trackcredit_menu.png'), action: 'tc' },
-    { id: '7', value: 'Record Previous Sales', imgUrl: require('../../images/previoussale_menu.png'), action: 'rs' },
+    { id: '1', value: 'New Sales', rightIconName:"arrow-forward-ios",leftIconName:"check-all", action: 'ns' },
+    { id: '2', value: 'Invoices', rightIconName:"arrow-forward-ios",leftIconName:"inbox-arrow-up", action: 'si' },
+    { id: '3', value: 'Discount', rightIconName:"arrow-forward-ios",leftIconName:"", action: 'di' },
+    { id: '4', value: 'Sales Update', rightIconName:"arrow-forward-ios",leftIconName:"chart-line", action: 'su' },
+    { id: '5', value: 'Sales History', rightIconName:"arrow-forward-ios",leftIconName:"history", action: 'sh' },
+    { id: '6', value: 'Track Credit', rightIconName:"arrow-forward-ios",leftIconName:"history", action: 'tc' },
+    { id: '7', value: 'Record Previous Sales', rightIconName:"arrow-forward-ios",leftIconName:"clipboard-outline", action: 'rs' },
 ];
 
 export const InventoryHomeDashboard = [

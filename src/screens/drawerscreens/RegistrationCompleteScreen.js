@@ -95,7 +95,7 @@ const RegistrationCompleteScreen = ({ route, navigation }) => {
     };
 
     return (
-        <View style={{ flex: 1 }}>
+        <View style={{ flex: 1, backgroundColor:"red"}}>
             <Loader loading={loading} />
             <ScrollView
                 keyboardShouldPersistTaps="handled"

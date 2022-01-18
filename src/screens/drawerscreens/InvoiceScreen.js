@@ -7,6 +7,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import Loader from '../components/Loader';
 import { ExpandableInvoiceList } from '../components/ExpandableInvoiceList';
 import AsyncStorage from '@react-native-community/async-storage';
+import { Container } from '../components/container';
 
 const InvoiceScreen = ({ navigation }) => {
 
@@ -69,14 +70,15 @@ const InvoiceScreen = ({ navigation }) => {
     }
     return (
         <SafeAreaView style={{ flex: 1 }}>
+            <Container backgroundFirst={"blue"}>
             <View style={styles.container}>
                 <Loader loading={loading} />
 
-                <View style={{ flexDirection: 'row', padding: 10 }}>
+                {/* <View style={{ flexDirection: 'row', padding: 10 }}>
                     <Text style={styles.titleText}>Invoice
                     <Text style={{ fontStyle: 'italic', fontSize: 8 }}>(Click on items to view details)</Text></Text>
 
-                </View>
+                </View> */}
                 <ScrollView>
                     {listDataSource.map((item, key) => (
                         <ExpandableInvoiceList
@@ -90,6 +92,7 @@ const InvoiceScreen = ({ navigation }) => {
                     ))}
                 </ScrollView>
             </View>
+            </Container>
         </SafeAreaView>
     )
 }

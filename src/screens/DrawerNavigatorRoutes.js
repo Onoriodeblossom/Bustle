@@ -1,12 +1,10 @@
 import React from 'react';
 
 // Import Navigators from React Navigation
-import { createStackNavigator } from '@react-navigation/stack';
-import { createDrawerNavigator } from '@react-navigation/drawer';
-import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
-import {
-  Text
-} from 'react-native';
+import {createStackNavigator} from '@react-navigation/stack';
+import {createDrawerNavigator} from '@react-navigation/drawer';
+import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
+import {Text, Image} from 'react-native';
 // Import Screens
 import AddProductVariationScreen from './drawerscreens/AddProductVariationScreen';
 import MyBasketScreen from './drawerscreens/MyBasketScreen';
@@ -66,11 +64,18 @@ import AddPreviousExpenseScreen from './drawerscreens/AddPreviousExpenseScreen';
 import RegistrationCompleteScreen from './drawerscreens/RegistrationCompleteScreen';
 import Cart from './components/Cart';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import Home from '../images/home.png';
+import Inventory from '../images/inventory.png';
+import Sales from '../images/sales.png';
+import Purchase from '../images/purchase.png';
+import Expense from '../images/expense.png';
+
+import Logout from '../images/logout.png';
+import Report from '../images/report.png';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 const BottomTab = createMaterialBottomTabNavigator();
-
 
 // const InventoryInnerScreenStack = ({ navigation }) => {
 //   return (
@@ -88,7 +93,7 @@ const BottomTab = createMaterialBottomTabNavigator();
 //   );
 // };
 
-const MyExpenseInnerScreenStack = ({ navigation }) => {
+const MyExpenseInnerScreenStack = ({navigation}) => {
   return (
     <Stack.Navigator initialRouteName="ExpenseHomeScreen">
       <Stack.Screen
@@ -99,7 +104,7 @@ const MyExpenseInnerScreenStack = ({ navigation }) => {
           headerTitleAlign: 'center',
           headerTitleStyle: {
             fontWeight: 'bold',
-          }
+          },
         }}
       />
       <Stack.Screen
@@ -110,7 +115,7 @@ const MyExpenseInnerScreenStack = ({ navigation }) => {
           headerTitleAlign: 'center',
           headerTitleStyle: {
             fontWeight: 'bold',
-          }
+          },
         }}
       />
       <Stack.Screen
@@ -121,7 +126,7 @@ const MyExpenseInnerScreenStack = ({ navigation }) => {
           headerTitleAlign: 'center',
           headerTitleStyle: {
             fontWeight: 'bold',
-          }
+          },
         }}
       />
       <Stack.Screen
@@ -132,9 +137,8 @@ const MyExpenseInnerScreenStack = ({ navigation }) => {
           headerTitleAlign: 'center',
           headerTitleStyle: {
             fontWeight: 'bold',
-          }
+          },
         }}
-
       />
       <Stack.Screen
         name="AddExpenseType2Screen"
@@ -144,9 +148,8 @@ const MyExpenseInnerScreenStack = ({ navigation }) => {
           headerTitleAlign: 'center',
           headerTitleStyle: {
             fontWeight: 'bold',
-          }
+          },
         }}
-
       />
 
       <Stack.Screen
@@ -157,7 +160,7 @@ const MyExpenseInnerScreenStack = ({ navigation }) => {
           headerTitleAlign: 'center',
           headerTitleStyle: {
             fontWeight: 'bold',
-          }
+          },
         }}
       />
       <Stack.Screen
@@ -168,9 +171,8 @@ const MyExpenseInnerScreenStack = ({ navigation }) => {
           headerTitleAlign: 'center',
           headerTitleStyle: {
             fontWeight: 'bold',
-          }
+          },
         }}
-
       />
 
       <Stack.Screen
@@ -181,9 +183,8 @@ const MyExpenseInnerScreenStack = ({ navigation }) => {
           headerTitleAlign: 'center',
           headerTitleStyle: {
             fontWeight: 'bold',
-          }
+          },
         }}
-
       />
       <Stack.Screen
         name="AddPreviousExpenseScreen"
@@ -193,15 +194,14 @@ const MyExpenseInnerScreenStack = ({ navigation }) => {
           headerTitleAlign: 'center',
           headerTitleStyle: {
             fontWeight: 'bold',
-          }
+          },
         }}
-
       />
     </Stack.Navigator>
   );
 };
 
-const MyPurchaseInnerScreenStack = ({ navigation }) => {
+const MyPurchaseInnerScreenStack = ({navigation}) => {
   return (
     <Stack.Navigator initialRouteName="PurchaseHomeScreen">
       <Stack.Screen
@@ -212,7 +212,7 @@ const MyPurchaseInnerScreenStack = ({ navigation }) => {
           headerTitleAlign: 'center',
           headerTitleStyle: {
             fontWeight: 'bold',
-          }
+          },
         }}
       />
       <Stack.Screen
@@ -223,7 +223,7 @@ const MyPurchaseInnerScreenStack = ({ navigation }) => {
           headerTitleAlign: 'center',
           headerTitleStyle: {
             fontWeight: 'bold',
-          }
+          },
         }}
       />
       <Stack.Screen
@@ -234,7 +234,7 @@ const MyPurchaseInnerScreenStack = ({ navigation }) => {
           headerTitleAlign: 'center',
           headerTitleStyle: {
             fontWeight: 'bold',
-          }
+          },
         }}
       />
       <Stack.Screen
@@ -245,7 +245,7 @@ const MyPurchaseInnerScreenStack = ({ navigation }) => {
           headerTitleAlign: 'center',
           headerTitleStyle: {
             fontWeight: 'bold',
-          }
+          },
         }}
       />
       <Stack.Screen
@@ -256,7 +256,7 @@ const MyPurchaseInnerScreenStack = ({ navigation }) => {
           headerTitleAlign: 'center',
           headerTitleStyle: {
             fontWeight: 'bold',
-          }
+          },
         }}
       />
       <Stack.Screen
@@ -267,7 +267,7 @@ const MyPurchaseInnerScreenStack = ({ navigation }) => {
           headerTitleAlign: 'center',
           headerTitleStyle: {
             fontWeight: 'bold',
-          }
+          },
         }}
       />
       <Stack.Screen
@@ -278,7 +278,7 @@ const MyPurchaseInnerScreenStack = ({ navigation }) => {
           headerTitleAlign: 'center',
           headerTitleStyle: {
             fontWeight: 'bold',
-          }
+          },
         }}
       />
       <Stack.Screen
@@ -289,7 +289,7 @@ const MyPurchaseInnerScreenStack = ({ navigation }) => {
           headerTitleAlign: 'center',
           headerTitleStyle: {
             fontWeight: 'bold',
-          }
+          },
         }}
       />
       <Stack.Screen
@@ -300,14 +300,14 @@ const MyPurchaseInnerScreenStack = ({ navigation }) => {
           headerTitleAlign: 'center',
           headerTitleStyle: {
             fontWeight: 'bold',
-          }
+          },
         }}
       />
     </Stack.Navigator>
   );
-}
+};
 
-const MySalesInnerScreenStack = ({ navigation }) => {
+const MySalesInnerScreenStack = ({navigation}) => {
   return (
     <Stack.Navigator initialRouteName="SalesHomeScreen">
       <Stack.Screen
@@ -318,13 +318,10 @@ const MySalesInnerScreenStack = ({ navigation }) => {
           headerTitleAlign: 'center',
           headerTitleStyle: {
             fontWeight: 'bold',
-          }
+          },
         }}
       />
-      <Stack.Screen
-        name="SalesScreen"
-        component={SalesScreen}
-      />
+      <Stack.Screen name="SalesScreen" component={SalesScreen} />
       <Stack.Screen
         name="TrackCreditScreen"
         component={TrackCreditScreen}
@@ -333,7 +330,7 @@ const MySalesInnerScreenStack = ({ navigation }) => {
           headerTitleAlign: 'center',
           headerTitleStyle: {
             fontWeight: 'bold',
-          }
+          },
         }}
       />
       <Stack.Screen
@@ -344,7 +341,7 @@ const MySalesInnerScreenStack = ({ navigation }) => {
           headerTitleAlign: 'center',
           headerTitleStyle: {
             fontWeight: 'bold',
-          }
+          },
         }}
       />
       <Stack.Screen
@@ -355,7 +352,7 @@ const MySalesInnerScreenStack = ({ navigation }) => {
           headerTitleAlign: 'center',
           headerTitleStyle: {
             fontWeight: 'bold',
-          }
+          },
         }}
       />
       <Stack.Screen
@@ -366,7 +363,7 @@ const MySalesInnerScreenStack = ({ navigation }) => {
           headerTitleAlign: 'center',
           headerTitleStyle: {
             fontWeight: 'bold',
-          }
+          },
         }}
       />
       <Stack.Screen
@@ -377,7 +374,7 @@ const MySalesInnerScreenStack = ({ navigation }) => {
           headerTitleAlign: 'center',
           headerTitleStyle: {
             fontWeight: 'bold',
-          }
+          },
         }}
       />
       <Stack.Screen
@@ -388,7 +385,7 @@ const MySalesInnerScreenStack = ({ navigation }) => {
           headerTitleAlign: 'center',
           headerTitleStyle: {
             fontWeight: 'bold',
-          }
+          },
         }}
       />
       <Stack.Screen
@@ -399,7 +396,7 @@ const MySalesInnerScreenStack = ({ navigation }) => {
           headerTitleAlign: 'center',
           headerTitleStyle: {
             fontWeight: 'bold',
-          }
+          },
         }}
       />
       <Stack.Screen
@@ -410,7 +407,7 @@ const MySalesInnerScreenStack = ({ navigation }) => {
           headerTitleAlign: 'center',
           headerTitleStyle: {
             fontWeight: 'bold',
-          }
+          },
         }}
       />
       <Stack.Screen
@@ -421,7 +418,7 @@ const MySalesInnerScreenStack = ({ navigation }) => {
           headerTitleAlign: 'center',
           headerTitleStyle: {
             fontWeight: 'bold',
-          }
+          },
         }}
       />
       <Stack.Screen
@@ -432,7 +429,7 @@ const MySalesInnerScreenStack = ({ navigation }) => {
           headerTitleAlign: 'center',
           headerTitleStyle: {
             fontWeight: 'bold',
-          }
+          },
         }}
       />
       <Stack.Screen
@@ -451,7 +448,7 @@ const MySalesInnerScreenStack = ({ navigation }) => {
           headerTitleAlign: 'center',
           headerTitleStyle: {
             fontWeight: 'bold',
-          }
+          },
         }}
       />
       <Stack.Screen
@@ -462,7 +459,7 @@ const MySalesInnerScreenStack = ({ navigation }) => {
           headerTitleAlign: 'center',
           headerTitleStyle: {
             fontWeight: 'bold',
-          }
+          },
         }}
       />
       <Stack.Screen
@@ -473,7 +470,7 @@ const MySalesInnerScreenStack = ({ navigation }) => {
           headerTitleAlign: 'center',
           headerTitleStyle: {
             fontWeight: 'bold',
-          }
+          },
         }}
       />
       <Stack.Screen
@@ -484,16 +481,14 @@ const MySalesInnerScreenStack = ({ navigation }) => {
           headerTitleAlign: 'center',
           headerTitleStyle: {
             fontWeight: 'bold',
-          }
+          },
         }}
       />
-
-
     </Stack.Navigator>
   );
 };
 
-const InventoryInnerScreenStack = ({ navigation }) => {
+const InventoryInnerScreenStack = ({navigation}) => {
   return (
     <Stack.Navigator initialRouteName="InventoryHomeScreen">
       <Stack.Screen
@@ -504,7 +499,7 @@ const InventoryInnerScreenStack = ({ navigation }) => {
           headerTitleAlign: 'center',
           headerTitleStyle: {
             fontWeight: 'bold',
-          }
+          },
         }}
       />
       <Stack.Screen
@@ -515,7 +510,7 @@ const InventoryInnerScreenStack = ({ navigation }) => {
           headerTitleAlign: 'center',
           headerTitleStyle: {
             fontWeight: 'bold',
-          }
+          },
         }}
       />
       <Stack.Screen
@@ -526,7 +521,7 @@ const InventoryInnerScreenStack = ({ navigation }) => {
           headerTitleAlign: 'center',
           headerTitleStyle: {
             fontWeight: 'bold',
-          }
+          },
         }}
       />
       <Stack.Screen
@@ -537,7 +532,7 @@ const InventoryInnerScreenStack = ({ navigation }) => {
           headerTitleAlign: 'center',
           headerTitleStyle: {
             fontWeight: 'bold',
-          }
+          },
         }}
       />
       <Stack.Screen
@@ -548,7 +543,7 @@ const InventoryInnerScreenStack = ({ navigation }) => {
           headerTitleAlign: 'center',
           headerTitleStyle: {
             fontWeight: 'bold',
-          }
+          },
         }}
       />
       <Stack.Screen
@@ -559,7 +554,7 @@ const InventoryInnerScreenStack = ({ navigation }) => {
           headerTitleAlign: 'center',
           headerTitleStyle: {
             fontWeight: 'bold',
-          }
+          },
         }}
       />
 
@@ -571,7 +566,7 @@ const InventoryInnerScreenStack = ({ navigation }) => {
           headerTitleAlign: 'center',
           headerTitleStyle: {
             fontWeight: 'bold',
-          }
+          },
         }}
       />
       <Stack.Screen
@@ -582,7 +577,7 @@ const InventoryInnerScreenStack = ({ navigation }) => {
           headerTitleAlign: 'center',
           headerTitleStyle: {
             fontWeight: 'bold',
-          }
+          },
         }}
       />
       <Stack.Screen
@@ -593,7 +588,7 @@ const InventoryInnerScreenStack = ({ navigation }) => {
           headerTitleAlign: 'center',
           headerTitleStyle: {
             fontWeight: 'bold',
-          }
+          },
         }}
       />
 
@@ -605,7 +600,7 @@ const InventoryInnerScreenStack = ({ navigation }) => {
           headerTitleAlign: 'center',
           headerTitleStyle: {
             fontWeight: 'bold',
-          }
+          },
         }}
       />
       <Stack.Screen
@@ -616,32 +611,26 @@ const InventoryInnerScreenStack = ({ navigation }) => {
           headerTitleAlign: 'center',
           headerTitleStyle: {
             fontWeight: 'bold',
-          }
+          },
         }}
       />
-
     </Stack.Navigator>
   );
 };
 
-
-const MyShopingBasketInnerScreenStack = ({ navigation }) => {
+const MyShopingBasketInnerScreenStack = ({navigation}) => {
   return (
     <Stack.Navigator initialRouteName="MyBasketScreen">
-      <Stack.Screen
-        name="My Shopping List"
-        component={MyBasketScreen}
-      />
+      <Stack.Screen name="My Shopping List" component={MyBasketScreen} />
       <Stack.Screen
         name="AddShoppingListScreen"
         component={AddShoppingListScreen}
-
       />
     </Stack.Navigator>
   );
 };
 
-const homeScreenStack = ({ navigation }) => {
+const homeScreenStack = ({navigation}) => {
   return (
     <Stack.Navigator initialRouteName="HomeScreen">
       <Stack.Screen
@@ -666,7 +655,7 @@ const homeScreenStack = ({ navigation }) => {
   );
 };
 
-const inventoryScreenStack = ({ navigation }) => {
+const inventoryScreenStack = ({navigation}) => {
   return (
     <Stack.Navigator initialRouteName="InventoryScreen">
       <Stack.Screen
@@ -691,12 +680,12 @@ const inventoryScreenStack = ({ navigation }) => {
   );
 };
 
-
-const salesScreenStack = ({ navigation }) => {
+const salesScreenStack = ({navigation}) => {
   return (
     <Stack.Navigator
       initialRouteName="SalesScreen"
       screenOptions={{
+        headerShown:false,
         headerLeft: () => (
           <NavigationDrawerHeader navigationProps={navigation} />
         ),
@@ -713,13 +702,13 @@ const salesScreenStack = ({ navigation }) => {
         name="SalesScreen"
         component={MySalesInnerScreenStack}
         options={{
-          title: 'Sales Manager', //Set Header Title
+          title: '', //Set Header Title
         }}
       />
     </Stack.Navigator>
   );
 };
-const purchaseScreenStack = ({ navigation }) => {
+const purchaseScreenStack = ({navigation}) => {
   return (
     <Stack.Navigator
       initialRouteName="PurchaseScreen"
@@ -747,7 +736,7 @@ const purchaseScreenStack = ({ navigation }) => {
   );
 };
 
-const expenseScreenStack = ({ navigation }) => {
+const expenseScreenStack = ({navigation}) => {
   return (
     <Stack.Navigator
       initialRouteName="ExpenseScreen"
@@ -779,25 +768,21 @@ const expenseScreenStack = ({ navigation }) => {
           headerTitleAlign: 'center',
           headerTitleStyle: {
             fontWeight: 'bold',
-          }
+          },
         }}
       />
     </Stack.Navigator>
   );
 };
 
-const settingInnerScreenStack = ({ navigation }) => {
+const settingInnerScreenStack = ({navigation}) => {
   return (
     <Stack.Navigator initialRouteName="SettingsScreen">
       <Stack.Screen
         name="SettingsScreen"
         component={SettingsScreen}
         options={{
-          title: 'Settings',
-          headerTitleAlign: 'center',
-          headerTitleStyle: {
-            fontWeight: 'bold',
-          }
+          headerShown: false,
         }}
       />
       <Stack.Screen
@@ -808,7 +793,7 @@ const settingInnerScreenStack = ({ navigation }) => {
           headerTitleAlign: 'center',
           headerTitleStyle: {
             fontWeight: 'bold',
-          }
+          },
         }}
       />
       <Stack.Screen
@@ -819,7 +804,7 @@ const settingInnerScreenStack = ({ navigation }) => {
           headerTitleAlign: 'center',
           headerTitleStyle: {
             fontWeight: 'bold',
-          }
+          },
         }}
       />
       <Stack.Screen
@@ -830,32 +815,32 @@ const settingInnerScreenStack = ({ navigation }) => {
           headerTitleAlign: 'center',
           headerTitleStyle: {
             fontWeight: 'bold',
-          }
+          },
         }}
       />
     </Stack.Navigator>
   );
 };
 
-const settingScreenStack = ({ navigation }) => {
+const settingScreenStack = ({navigation}) => {
   return (
     <Stack.Navigator initialRouteName="SettingsScreen">
-
       <Stack.Screen
         name="SettingsScreen"
         component={settingInnerScreenStack}
         options={{
-          title: 'Settings Manager', //Set Header Title
-          headerLeft: () => (
-            <NavigationDrawerHeader navigationProps={navigation} />
-          ),
+          title: 'Account Settings ',
+           //Set Header Title
+          // headerLeft: () => (
+            // <NavigationDrawerHeader navigationProps={navigation} />
+          // ),
 
           headerStyle: {
-            backgroundColor: '#307ecc', //Set Header color
+            backgroundColor: "white"
           },
-          headerTintColor: '#fff', //Set Header text color
+          headerTintColor: 'black', //Set Header text color
           headerTitleStyle: {
-            fontWeight: 'bold', //Set Header text style
+            fontWeight: 'normal', //Set Header text style
           },
         }}
       />
@@ -869,24 +854,18 @@ const DrawerNavigatorRoutes = props => {
       drawerContentOptions={{
         activeTintColor: '#cee1f2',
         color: '#cee1f2',
-        itemStyle: { marginVertical: 5, color: 'white' },
+        itemStyle: {marginVertical: 5, color: 'white'},
         labelStyle: {
           color: '#d8d8d8',
         },
       }}
-      screenOptions={{ headerShown: false }}
+      screenOptions={{headerShown: false}}
       drawerContent={CustomSidebarMenu}>
       <Drawer.Screen
         name="homeScreenStack"
         options={{
           drawerLabel: 'Home Screen',
-          drawerIcon: ({ focused, size }) => (
-            <Icon
-              name="home"
-              size={size}
-              color={focused ? '#fff' : '#ccc'}
-            />
-          )
+          drawerIcon: ({focused, size}) => <Image source={Home} />,
         }}
         component={homeScreenStack}
       />
@@ -894,13 +873,7 @@ const DrawerNavigatorRoutes = props => {
         name="inventoryScreenStack"
         options={{
           drawerLabel: 'Inventory Manager',
-          drawerIcon: ({ focused, size }) => (
-            <Icon
-              name="book"
-              size={size}
-              color={focused ? '#fff' : '#ccc'}
-            />
-          )
+          drawerIcon: ({focused, size}) => <Image source={Inventory} />,
         }}
         component={inventoryScreenStack}
       />
@@ -908,13 +881,7 @@ const DrawerNavigatorRoutes = props => {
         name="salesScreenStack"
         options={{
           drawerLabel: 'Sales Manager',
-          drawerIcon: ({ focused, size }) => (
-            <Icon
-              name="book"
-              size={size}
-              color={focused ? '#fff' : '#ccc'}
-            />
-          )
+          drawerIcon: ({focused, size}) => <Image source={Sales} />,
         }}
         component={salesScreenStack}
       />
@@ -922,13 +889,7 @@ const DrawerNavigatorRoutes = props => {
         name="purchaseScreenStack"
         options={{
           drawerLabel: 'Purchase Manager',
-          drawerIcon: ({ focused, size }) => (
-            <Icon
-              name="book"
-              size={size}
-              color={focused ? '#fff' : '#ccc'}
-            />
-          )
+          drawerIcon: ({focused, size}) => <Image source={Purchase} />,
         }}
         component={purchaseScreenStack}
       />
@@ -936,13 +897,7 @@ const DrawerNavigatorRoutes = props => {
         name="expenseScreenStack"
         options={{
           drawerLabel: 'Expense Manager',
-          drawerIcon: ({ focused, size }) => (
-            <Icon
-              name="book"
-              size={size}
-              color={focused ? '#fff' : '#ccc'}
-            />
-          )
+          drawerIcon: ({focused, size}) => <Image source={Expense} />,
         }}
         component={expenseScreenStack}
       />
@@ -1007,13 +962,9 @@ const DrawerNavigatorRoutes = props => {
         name="MyExpenseInnerScreenStack"
         options={{
           drawerLabel: 'Report',
-          drawerIcon: ({ focused, size }) => (
-            <Icon
-              name="book"
-              size={size}
-              color={focused ? '#fff' : '#ccc'}
-            />
-          )
+          drawerIcon: ({focused, size}) => (
+            <Icon name="book" size={size} color={focused ? '#fff' : '#ccc'} />
+          ),
         }}
         component={expenseScreenStack}
       />
@@ -1021,13 +972,9 @@ const DrawerNavigatorRoutes = props => {
         name="settingScreenStack"
         options={{
           drawerLabel: 'Setting Screen',
-          drawerIcon: ({ focused, size }) => (
-            <Icon
-              name="cog"
-              size={size}
-              color={focused ? '#fff' : '#ccc'}
-            />
-          )
+          drawerIcon: ({focused, size}) => (
+            <Icon name="cog" size={size} color={focused ? '#fff' : '#ccc'} />
+          ),
         }}
         component={settingScreenStack}
       />

@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import React, {Component} from 'react';
+import {Text, View} from 'react-native';
 
 import 'react-native-gesture-handler';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
 
 import SubscriptionScreen from './src/screens/SubscriptionScreen';
 import SplashScreen from './src/screens/SplashScreen';
@@ -20,20 +20,22 @@ const Auth = () => {
       <Stack.Screen
         name="LoginScreen"
         component={LoginScreen}
-        options={{ headerShown: false }}
+        options={{headerShown: false}}
       />
       <Stack.Screen
         name="RegisterScreen"
         component={RegisterScreen}
         options={{
-          title: 'Register', //Set Header Title
+          title: '',
+          //Set Header Title
           headerStyle: {
-            backgroundColor: '#307ecc', //Set Header color
+            // backgroundColor: '#307ecc',
+            //Set Header color
           },
-          headerTintColor: '#fff', //Set Header text color
-          headerTitleStyle: {
-            fontWeight: 'bold', //Set Header text style
-          },
+          headerTintColor: '#0292B7', //Set Header text color
+          // headerTitleStyle: {
+          //   fontWeight: 'bold', //Set Header text style
+          // },
         }}
       />
       <Stack.Screen
@@ -54,14 +56,16 @@ const Auth = () => {
         name="ForgetPasswordScreen"
         component={ForgetPasswordScreen}
         options={{
-          title: 'Forget Password', //Set Header Title
+          title: '',
+          //Set Header Title
           headerStyle: {
-            backgroundColor: '#307ecc', //Set Header color
+            // backgroundColor: '#307ecc',
+            //Set Header color
           },
-          headerTintColor: '#fff', //Set Header text color
-          headerTitleStyle: {
-            fontWeight: 'bold', //Set Header text style
-          },
+          headerTintColor: '#0292B7', //Set Header text color
+          // headerTitleStyle: {
+          //   fontWeight: 'bold', //Set Header text style
+          // },
         }}
       />
     </Stack.Navigator>
@@ -71,28 +75,27 @@ const Auth = () => {
 const App = () => {
   return (
     <NavigationContainer>
-      {/* <Stack.Navigator initialRouteName="SplashScreen"> */}
-
-      <Stack.Navigator initialRouteName="Auth">
+      <Stack.Navigator initialRouteName="SplashScreen">
+        {/* <Stack.Navigator initialRouteName="Auth"> */}
         {/* SplashScreen which will come once for 5 Seconds */}
-        <Stack.Screen
+       <Stack.Screen
           name="SplashScreen"
           component={SplashScreen}
-          // Hiding header for Splash Screen
-          options={{ headerShown: false }}
-        />
+          options={{headerShown: false}}
+          /> 
+        {/* Hiding header for Splash Screen */}
         {/* Auth Navigator: Include Login and Signup */}
-        <Stack.Screen
+         <Stack.Screen
           name="Auth"
           component={Auth}
-          options={{ headerShown: false }}
-        />
+          options={{headerShown: false}}
+        /> 
         {/* Navigation Drawer as a landing page */}
         <Stack.Screen
           name="DrawerNavigationRoutes"
           component={DrawerNavigationRoutes}
           // Hiding header for Navigation Drawer
-          options={{ headerShown: false }}
+          options={{headerShown: false}}
         />
       </Stack.Navigator>
     </NavigationContainer>
